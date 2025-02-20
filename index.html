@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculateur de Dégâts d'Armes</title>
+    <script src="https://unpkg.com/@owlbear-rodeo/sdk@^1.3.8/dist/owlbear-sdk.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 10px;
+            background-color: var(--owlbear-background-color, #f0f0f0);
+            color: var(--owlbear-text-color, #000);
+        }
+        .calculator {
+            background-color: var(--owlbear-background-secondary-color, white);
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .form-group {
+            margin-bottom: 12px;
+        }
+        label {
+            display: block;
+            margin-bottom: 4px;
+            font-weight: bold;
+            color: var(--owlbear-text-color, #000);
+        }
+        select, input {
+            width: 100%;
+            padding: 6px;
+            border: 1px solid var(--owlbear-border-color, #ddd);
+            border-radius: 4px;
+            background-color: var(--owlbear-input-background-color, white);
+            color: var(--owlbear-text-color, #000);
+        }
+        button {
+            background-color: var(--owlbear-primary-color, #4CAF50);
+            color: white;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            width: 100%;
+        }
+        button:hover {
+            filter: brightness(110%);
+        }
+        #result {
+            margin-top: 15px;
+            padding: 12px;
+            border: 1px solid var(--owlbear-border-color, #ddd);
+            border-radius: 4px;
+            display: none;
+            background-color: var(--owlbear-background-secondary-color, white);
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <h2>Calculateur de Dégâts</h2>
+        
+        <div class="form-group">
+            <label for="weapon-select">Arme:</label>
+            <select id="weapon-select">
+                <option value="battle-axe">Battle Axe</option>
+                <option value="dagger">Dagger</option>
+                <option value="hand-axe">Hand Axe</option>
+                <option value="heavy-crossbow">Heavy Crossbow</option>
+                <option value="light-crossbow">Light Crossbow</option>
+                <option value="mace">Mace</option>
+                <option value="morning-star">Morning Star</option>
+                <option value="scimitar">Scimitar</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="weapon-power">Puissance (1-150):</label>
+            <input type="number" id="weapon-power" min="1" max="150" value="150">
+        </div>
+
+        <div class="form-group">
+            <label for="monster-power">Monstre (1-20):</label>
+            <input type="number" id="monster-power" min="1" max="20" value="1">
+        </div>
+
+        <button onclick="calculateDamage()">Calculer</button>
+
+        <div id="result"></div>
+        
+        <div class="modifiers-legend">
+            <h3>Légende des modificateurs:</h3>
+            <div id="modifiers"></div>
+        </div>
+    </div>
+
+    <!-- Charger les bases de données -->
+    <script src="damage-modifiers.js"></script>
+    <script src="battle-axe-db.js"></script>
+    <script src="dagger-db.js"></script>
+    <script src="handaxe-db.js"></script>
+    <script src="heavy-crossbow-db.js"></script>
+    <script src="light-crossbow-db.js"></script>
+    <script src="mace-db.js"></script>
+    <script src="morning-star-db.js"></script>
+    <script src="scimitar-db.js"></script>
+    <script src="script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,16 @@
+{
+  "name": "Calculateur de Dégâts d'Armes",
+  "version": "1.0.0",
+  "description": "Calculateur de dégâts d'armes pour vos parties de jeu de rôle",
+  "author": "Votre nom",
+  "icon": "/icon.svg",
+  "manifest_version": 1,
+  "background_url": "/",
+  "action": {
+    "title": "Calculateur d'Armes",
+    "icon": "/icon.svg",
+    "popover": "/index.html",
+    "height": 600,
+    "width": 400
+  }
+}
